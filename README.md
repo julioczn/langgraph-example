@@ -306,72 +306,7 @@ Implementa as ferramentas de validação:
 
 ## 🔌 APIs Externas Utilizadas
 
-### API de Validação de IRPF
-
-**Endpoint**:
-
-```
-POST https://release-remessai-gateway.eurodolar.xyz/api/documents/process/irpf
-```
-
-**Headers**:
-
-```
-Authorization: cmfh5284v0002en3m1j3k7d3a
-Content-Type: multipart/form-data
-```
-
-**Body (FormData)**:
-
-- `irpf`: Arquivo PDF do documento IRPF
-
-**Resposta Esperada**:
-
-```json
-{
-  "success": true,
-  "message": "IRPF validado com sucesso!",
-  "data": { ... }
-}
-```
-
----
-
-### API de Validação de Comprovante de Residência
-
-**Endpoint**:
-
-```
-POST https://remessai-gateway.remessaonline.com.br/api/documents/process/proof-of-residence
-```
-
-**Headers**:
-
-```
-Authorization: cmebh72jq000kea3yet7qawle
-Content-Type: multipart/form-data
-```
-
-**Body (FormData)**:
-
-- `document`: Arquivo PDF do comprovante
-- `currentAddress[value]`: String com endereço completo
-
-**Formato do Endereço**:
-
-```
-Rua, Número, Bairro, Cidade, Estado - CEP
-```
-
-**Resposta Esperada**:
-
-```json
-{
-  "success": true,
-  "message": "Comprovante de residência validado com sucesso!",
-  "data": { ... }
-}
-```
+O sistema integra-se com APIs externas para validação de documentos. As configurações de endpoints e autenticação estão definidas em `lib/tools.ts`.
 
 > ⚠️ **Nota de Segurança**: As chaves de autorização estão hardcoded em `lib/tools.ts`. Em produção, considere movê-las para variáveis de ambiente.
 
